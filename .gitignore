@@ -1,6 +1,3 @@
-/vendor
-/resources/docs
-/public/api
 !/public/assets/js/viewport-units-buggyfill.js
 /public/build
 /public/page-cache
@@ -9,11 +6,9 @@
 /build/sami/cache
 /build/sami/laravel
 /build/sami/vendor
-/node_modules
+
 composer.phar
 .env.*
-.env
-.DS_Store
-Thumbs.db
+/node_modules
 /.idea
 package-lock.json
