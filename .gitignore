@@ -5,8 +5,7 @@
 /build/sami/build
 /build/sami/cache
 /build/sami/laravel
-/build/sami/vendor
-
+/build/sami/vendors
 composer.phar
 .env.*
 /node_modules
