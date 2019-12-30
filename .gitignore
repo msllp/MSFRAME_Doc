@@ -11,4 +11,3 @@ composer.phar
 /node_modules
 /.idea
 package-lock.json
-/vendor
