@@ -49,9 +49,7 @@ Module location `rootFolder / MS / { B|F } / M /`
 
 - View related Files : `rootFolder / MS / {B|F} / {ModuleCode} / V`  
 - Javascript related Files : `rootFolder / MS / {B|F} / {ModuleCode} / J`
-- Module Table Structure related Files : `rootFolder / MS / {B|F} / {ModuleCode} / T`
 - Module Defined Function related Files : `rootFolder / MS / {B|F} / {ModuleCode} / F`
-
 
 </div>
 
@@ -66,14 +64,14 @@ Module location `rootFolder / MS / { B|F } / M /`
 - Module Base Configure File : `rootFolder / MS / {B|F} / {ModuleCode} / B.php`  
 - Module Route File : `rootFolder / MS / {B|F} / {ModuleCode} / R.php`
 - Module Controller File  : `rootFolder / MS / {B|F} / {ModuleCode} / C.php`
-- Module Model Files : `rootFolder / MS / {B|F} / {ModuleCode} / M.php`
+- Module Model File : `rootFolder / MS / {B|F} / {ModuleCode} / M.php`
+- Module Function File : `rootFolder / MS / {B|F} / {ModuleCode} / F.php`
 
 `note:` `All file required to make Module work with MS-Frame`
 
 </div>
 
 ###### `note:` `B : Backend` , `F : Frontend` , `ModuleCode : Code Of Module` 
-
 
 
 
@@ -87,6 +85,7 @@ End: B  `default namespcae for Backend`
 Module Code : Foo  
 
 <a name="base"></a>
+
 #### Base File `rootFolder / MS / B / Foo / B.php`
     <?php
      namespace B\Foo;
@@ -96,8 +95,9 @@ Module Code : Foo
     {
         public static $controller="B\Foo\C";
         public static $model="B\Foo\M";
-      
-    
+
+
+​    
         public static $route=[
     
             [
@@ -124,9 +124,9 @@ Module Code : Foo
     
     class M extends Master
     {
-
-    }
     
+    }
+
 <a name="controller"></a>
 #### Controller File `rootFolder / MS / B / Foo / C.php`
     <?php
@@ -137,7 +137,7 @@ Module Code : Foo
     use Illuminate\Routing\Controller as BaseController;
     use Illuminate\Foundation\Validation\ValidatesRequests;
     use Illuminate\Http\Request;
-
+    
     class C extends BaseController
     {
         use  DispatchesJobs, ValidatesRequests;
@@ -147,10 +147,11 @@ Module Code : Foo
         return true;
      
      }
-     
-        
+
+
+​        
      }
-    
+
 <a name="table"></a>
 #### Table File `rootFolder / MS / B / Foo / T /TableFileName.php`
     <?php
@@ -162,42 +163,66 @@ Module Code : Foo
          'fields'=>[],
     ];
     
+    or
+    
+    $data=[
+            'tableId'=>'Table ID',
+            'tableName'=>'Table Name',
+            'connection'=>'Table Connection',
+            ];
+    
+    $table = new MS\Core\Helper\MSTableSchema($data);
+    
+    $tableData = $table->finalReturnForTableFile();
+    
+    return $tableData;
 
-##### Available Fields for Table Coloumn
+##### Available Fields for Table Column
+
+<a name="inputgroups"></a>
+###### Input Groups
+Every Column should include in any Input Group to work with MS Frame Table Schema.
+   
+    $InputGroupName = "Input Group Name";
+    $table->addGroup($InputGroupName);
 
 <a name="locked"></a>
 ###### Locked Input
-    [
-      'name'=>'columnName',
-      'vName'=>'Input Display Name',
-      'type'=>'string',
-      'input'=>'auto',
-      'callback'=>'callbackFunction',
-      'inputInfo'=>"info Text"
-    ],     
+     $input= [
+              'name'=>'columnName',
+              'vName'=>'Input Display Name',
+              'type'=>'string',
+              'input'=>'auto',
+              'callback'=>'callbackFunction',
+              'inputInfo'=>"info Text"
+            ];    
+   
+    $table->setFields($input);
 
 <a name="text"></a>
 ###### Text Input
-    [
-      'name'=>'columnName',
-      'vName'=>'Input Display Name',
-      'type'=>'string',
-      'input'=>'text',
-      'inputInfo'=>"info Text"
-    ],     
+      $input= [
+              'name'=>'columnName',
+              'vName'=>'Input Display Name',
+              'type'=>'string',
+              'input'=>'text',
+              'inputInfo'=>"info Text"
+            ];     
+    $table->setFields($input);
 
 <a name="file"></a>
 ###### File Input
 Array for File Input required key `storeTo` & pass storage disk name with dir location to store file & retrieve file when required.
 
-    [
+    $input= [
       'name'=>'columnName',
       'vName'=>'Input Display Name',
       'type'=>'string',
       'input'=>'file',
       'inputInfo'=>"info Text",
       'storeTo'=>"MS-MASTER-Storage:MAS.UniqId.ModIcon->icon" 
-    ],     
+    ];
+    $table->setFields($input);     
 
 
 MSForms
