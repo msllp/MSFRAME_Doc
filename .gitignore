@@ -7,7 +7,6 @@
 /build/sami/laravel
 /build/sami/vendors
 /vendor/
-*.lock
 composer.phar
 .env.*
 /node_modules
