@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ isset($title) ? $title . ' - ' : null }}Laravel - The PHP Framework For Web Artisans</title>
+    <title>{{ isset($title) ? $title . ' - ' : null }}MS-Framework - The PHP Framework For Web Mama</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     @if (isset($canonical))
@@ -175,13 +175,6 @@
 
 <script src="{{ mix('js/app.js') }}"></script>
 
-<script>
-    var _gaq=[['_setAccount','UA-23865777-1'],['_trackPageview']];
-    (function(d,t){
-        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)
-    }(document,'script'));
-</script>
+
 </body>
 </html>

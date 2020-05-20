@@ -7,16 +7,15 @@
             <div class="contain">
                 <aside class="sidebar">
                     <a href="/" class="logo">
-                        <img class="mark" src="/img/logomark.min.svg" alt="Laravel">
-                        <img class="type" src="/img/logotype.min.svg" alt="Laravel">
+                        <h2>MS <small>Framework</small></h2>
+{{--                        <img class="mark" src="/img/logomark.min.svg" alt="Laravel">--}}
+{{--                        <img class="type" src="/img/logotype.min.svg" alt="Laravel">--}}
                     </a>
                     <nav>
                         <div class="navigation_contain">
                             <div class="docs_sidebar">
                                 {!! $index !!}
                             </div>
-
-                            <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYILK3E&placement=laravelcom" id="_carbonads_js"></script>
 
 
                         </div>

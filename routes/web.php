@@ -24,4 +24,4 @@ Route::get('partner/{partner}', 'PartnersController@show');
 
 Route::get('/', function () {
     return view('marketing');
-});
+});Route::get('/', 'DocsController@showRootPage');
