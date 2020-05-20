@@ -37,30 +37,23 @@
 
 <footer>
     <div class="footer_contain" style="padding-top: 0;">
-        <div class="contain">
-            <section class="partner_block">
-                <div class="content">
-                    <h2>Become a Laravel Partner</h2>
-                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>
-                </div>
-                @if(request()->is('partners'))
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform?usp=sf_link" class="btn"><span>Become A Partner</span></a>
-                @else
-                <a href="/partners" class="btn"><span>Our Partners</span></a>
-                @endif
-            </section>
-        </div>
+{{--        <div class="contain">--}}
+{{--            <section class="partner_block">--}}
+{{--                <div class="content">--}}
+{{--                    <h2>Become a Laravel Partner</h2>--}}
+{{--                    <p>Laravel Partners are elite shops providing top-notch Laravel development and consulting. Each of our partners can help you craft a beautiful, well-architected project.</p>--}}
+{{--                </div>--}}
+{{--                @if(request()->is('partners'))--}}
+{{--                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOTE1G6zxSPbKdmQ59UKkL_Rja_ddAyG6Y6xxGdSGAWlNTFA/viewform?usp=sf_link" class="btn"><span>Become A Partner</span></a>--}}
+{{--                @else--}}
+{{--                <a href="/partners" class="btn"><span>Our Partners</span></a>--}}
+{{--                @endif--}}
+{{--            </section>--}}
+{{--        </div>--}}
 
-        <div class="footer_bg">
+        <div class="footer_bg" style="padding-top: 20px;">
             <div class="contain">
-                <div class="footer_content">
-                    <div class="logotype">
-                        <img src="/img/logotype.min.svg" alt="Laravel">
-                    </div>
-                    <div class="search_box">
 
-                    </div>
-                </div>
                 <div class="footer_content">
                     <div class="footer_nav">
                         <div class="nav_col">

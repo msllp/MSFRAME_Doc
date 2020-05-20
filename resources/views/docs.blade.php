@@ -6,10 +6,9 @@
         <div class="page_contain">
             <div class="contain">
                 <aside class="sidebar">
-                    <a href="/" class="logo">
-                        <h2>MS <small>Framework</small></h2>
-{{--                        <img class="mark" src="/img/logomark.min.svg" alt="Laravel">--}}
-{{--                        <img class="type" src="/img/logotype.min.svg" alt="Laravel">--}}
+                    <a href="/" class="logo" style="display:block;">
+                        <img class="mark" style="max-height: 50px;" src="/img/logomark.min.svg" alt="Laravel">
+                        <img class="type" style="max-height: 40px;width: 13.0625em!important;" src="/img/logotype.min.svg" alt="Laravel">
                     </a>
                     <nav>
                         <div class="navigation_contain">
