@@ -1,59 +1,28 @@
 # Magic Function
 
 - [Introduction](#introduction)
-    - [Creating Collections](#creating-collections)
-    - [Extending Collections](#extending-collections)
+    - [Creating Collections](#calling-collections)
 - [Available Methods](#available-methods)
 - [Higher Order Messages](#higher-order-messages)
 
 <a name="introduction"></a>
 ## Introduction
 
-The `Illuminate\Support\Collection` class provides a fluent, convenient wrapper for working with arrays of data. For example, check out the following code. We'll use the `collect` helper to create a new collection instance from the array, run the `strtoupper` function on each element, and then remove all empty elements:
+MS-framework have some magic funciton that your can use some of state art function developed by MSLLP Team.
 
-    $collection = collect(['taylor', 'abigail', null])->map(function ($name) {
-        return strtoupper($name);
-    })
-    ->reject(function ($name) {
-        return empty($name);
-    });
+<a name="calling-collections"></a>
+### Calling Function
 
-As you can see, the `Collection` class allows you to chain its methods to perform fluent mapping and reducing of the underlying array. In general, collections are immutable, meaning every `Collection` method returns an entirely new `Collection` instance.
+all magic function have 'ms()' prefix.
 
-<a name="creating-collections"></a>
-### Creating Collections
+    ms()->version();
+    //retrun MS Frame 6 Community Licence
 
-As mentioned above, the `collect` helper returns a new `Illuminate\Support\Collection` instance for the given array. So, creating a collection is as simple as:
-
-    $collection = collect([1, 2, 3]);
-
-> {tip} The results of [Eloquent](/docs/{{version}}/eloquent) queries are always returned as `Collection` instances.
-
-<a name="extending-collections"></a>
-### Extending Collections
-
-Collections are "macroable", which allows you to add additional methods to the `Collection` class at run time. For example, the following code adds a `toUpper` method to the `Collection` class:
-
-    use Illuminate\Support\Str;
-
-    Collection::macro('toUpper', function () {
-        return $this->map(function ($value) {
-            return Str::upper($value);
-        });
-    });
-
-    $collection = collect(['first', 'second']);
-
-    $upper = $collection->toUpper();
-
-    // ['FIRST', 'SECOND']
-
-Typically, you should declare collection macros in a [service provider](/docs/{{version}}/providers).
 
 <a name="available-methods"></a>
 ## Available Methods
 
-For the remainder of this documentation, we'll discuss each method available on the `Collection` class. Remember, all of these methods may be chained to fluently manipulate the underlying array. Furthermore, almost every method returns a new `Collection` instance, allowing you to preserve the original copy of the collection when necessary:
+For the remainder of this documentation, we'll discuss each method available on MS-Framework:
 
 <style>
     #collection-method-list > p {
@@ -68,8 +37,8 @@ For the remainder of this documentation, we'll discuss each method available on 
 
 <div id="collection-method-list" markdown="1">
 
-[all](#method-all)
-[average](#method-average)
+[version](#version)
+[msdb](#msdb)
 [avg](#method-avg)
 [chunk](#method-chunk)
 [collapse](#method-collapse)
@@ -194,32 +163,30 @@ For the remainder of this documentation, we'll discuss each method available on 
     }
 </style>
 
-<a name="method-all"></a>
+<a name="version"></a>
 #### `all()` {#collection-method .first-collection-method}
 
 The `all` method returns the underlying array represented by the collection:
 
-    collect([1, 2, 3])->all();
-
+    ms()->version;
     // [1, 2, 3]
 
-<a name="method-average"></a>
-#### `average()` {#collection-method}
+<a name="msdb"></a>
+#### `msdb()` {#collection-method}
 
-Alias for the [`avg`](#method-avg) method.
+Alias for the new \MS\Core\Helper\MSDB()  method.
 
 <a name="method-avg"></a>
-#### `avg()` {#collection-method}
+#### `msdb()` {#collection-method}
 
-The `avg` method returns the [average value](https://en.wikipedia.org/wiki/Average) of a given key:
 
-    $average = collect([['foo' => 10], ['foo' => 10], ['foo' => 20], ['foo' => 40]])->avg('foo');
+    $database = ms()->msdb( '/B/Namespace/of/class','MasterTable',['001'] );
 
-    // 20
+    // return /MS/Core/Helper/MSDB::class;
 
-    $average = collect([1, 1, 2, 4])->avg();
+    $database = ms()->msdb( '/B/Namespace/of/class','MasterTable',['001'] ,['id'=>'1']);
 
-    // 2
+    // return /MS/Core/Helper/MSDB::class with prefield data;
 
 <a name="method-chunk"></a>
 #### `chunk()` {#collection-method}
