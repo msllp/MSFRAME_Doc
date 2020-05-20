@@ -11,6 +11,8 @@
 |
 */
 
+phpinfo();
+exit();
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
