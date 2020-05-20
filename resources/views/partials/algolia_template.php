@@ -1,29 +1,41 @@
 <script id="search_suggestion_template" type="text/template">
 	<div class="autocomplete-wrapper">
-		{{#_highlightResult.h1}}
+		{{#_highlightResult.hierarchy.lvl0.value}}
 		<div class="h1">
-			{{{ _highlightResult.h1.value }}}
+			{{{ _highlightResult.hierarchy.lvl0.value }}}
 		</div>
-		{{/_highlightResult.h1}}
+		{{/_highlightResult.hierarchy.lvl0.value}}
 
 		<div class="sub-section">
-			{{#_highlightResult.h2}}
+			{{#_highlightResult.hierarchy.lvl1.value}}
 			<div class="h2">
-				<span class="hash">#</span> {{{ _highlightResult.h2.value }}}
+				<span class="hash">#</span> {{{ _highlightResult.hierarchy.lvl1.value }}}
 			</div>
-			{{/_highlightResult.h2}}
+			{{/_highlightResult.hierarchy.lvl1.value}}
 
-			{{#_highlightResult.h3}}
+			{{#_highlightResult.hierarchy.lvl2.value}}
 			<div class="h3">
-				> {{{ _highlightResult.h3.value }}}
+				> {{{ _highlightResult.hierarchy.lvl2.value }}}
 			</div>
-			{{/_highlightResult.h3}}
+			{{/_highlightResult.hierarchy.lvl2.value}}
 
-			{{#_highlightResult.h4}}
+			{{#_highlightResult.hierarchy.lvl3.value}}
 			<div class="h4">
-				> {{{ _highlightResult.h4.value }}}
+				> {{{ _highlightResult.hierarchy.lvl3.value }}}
 			</div>
-			{{/_highlightResult.h4}}
+			{{/_highlightResult.hierarchy.lvl3.value}}
+
+			{{#_highlightResult.hierarchy.lvl4.value}}
+			<div class="h5">
+				> {{{_highlightResult.hierarchy.lvl4.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl4.value}}
+
+			{{#_highlightResult.hierarchy.lvl5.value}}
+			<div class="h6">
+				> {{{_highlightResult.hierarchy.lvl5.value}}}
+			</div>
+			{{/_highlightResult.hierarchy.lvl5.value}}
 		</div>
 
 		{{#_highlightResult.content}}
@@ -43,7 +55,7 @@
 <script id="search_footer_template" type="text/template">
 	<div class="footer">
 		<a target="_blank" href="https://www.algolia.com/?utm_source=laravel&utm_medium=link&utm_campaign=laravel_documentation_search">
-			<img width="105" src="/assets/img/algolia-logo.svg">
+            <img width="105" src="/img/icons/algolia.min.svg" alt="Algolia">
 			<div style="clear: both"></div>
 		</a>
 	</div>

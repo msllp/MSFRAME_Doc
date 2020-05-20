@@ -10,14 +10,14 @@ class DocsController extends Controller
     /**
      * The documentation repository.
      *
-     * @var Documentation
+     * @var \App\Documentation
      */
     protected $docs;
 
     /**
      * Create a new controller instance.
      *
-     * @param  Documentation  $docs
+     * @param  \App\Documentation  $docs
      * @return void
      */
     public function __construct(Documentation $docs)
@@ -28,7 +28,7 @@ class DocsController extends Controller
     /**
      * Show the root documentation page (/docs).
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function showRootPage()
     {
@@ -38,9 +38,9 @@ class DocsController extends Controller
     /**
      * Show a documentation page.
      *
-     * @param  string $version
-     * @param  string|null $page
-     * @return Response
+     * @param  string  $version
+     * @param  string|null  $page
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public function show($version, $page = null)
     {
@@ -56,13 +56,18 @@ class DocsController extends Controller
         $content = $this->docs->get($version, $sectionPage);
 
         if (is_null($content)) {
+            $otherVersions = $this->docs->versionsContainingPage($page);
+
             return response()->view('docs', [
                 'title' => 'Page not found',
                 'index' => $this->docs->getIndex($version),
-                'content' => view('partials.doc-missing'),
+                'content' => view('docs-missing', [
+                    'otherVersions' => $otherVersions,
+                    'page' => $page,
+                ]),
                 'currentVersion' => $version,
                 'versions' => Documentation::getDocVersions(),
-                'currentSection' => '',
+                'currentSection' => $otherVersions->isEmpty() ? '' : '/'.$page,
                 'canonical' => null,
             ], 404);
         }

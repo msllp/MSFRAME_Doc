@@ -1,288 +1,258 @@
-@extends('app')
-
-@section('body-class', 'home')
+@extends('partials.layout')
 
 @section('content')
+    @include('partials.header')
 
-<nav id="slide-menu" class="slide-menu" role="navigation">
-
-	<div class="brand">
-		<a href="/">
-			<img src="/assets/img/laravel-logo-white.png" height="50" alt="Laravel white logo">
-		</a>
-	</div>
-
-	<ul class="slide-main-nav">
-		@include('partials.main-nav')
-	</ul>
-
-</nav>
-
-<section class="hero">
-	<div class="container">
-
-        <div class="content">
-            <h1>Love beautiful code? We do too.</h1>
-            <p>The PHP Framework For Web Artisans</p>
-        </div>
-
-        @include('partials/browser')
-
-        <div class="macbook">
-<pre class="line-numbers"><code class="language-php">
-&lt;?php
-
-
-class Idea extends Eloquent
-{
-
-	/**
-	 * Dreaming of something more?
-	 *
-	 * @with Laravel
-	 */
-	public function create()
-	{
-		// Have a fresh start...
-	}
-
-}</code></pre>
-            {!! svg('macbook') !!}
-        </div>
-
-        <div class="callout rule">
-            <span class="text">See What's New!</span>
-        </div>
-
-        <div class="callouts">
-            <a href="/docs/horizon" class="callout minimal third">
-                <div class="callout-head">
-                    <div class="callout-title">Laravel Horizon</div>
-                    <div class="callout-icon">{!! svg('logo-horizon')!!}</div>
-                </div>
-                <p>Laravel Horizon provides a beautiful dashboard and code-driven configuration for your Redis queues.</p>
-            </a>
-            <a href="https://nova.laravel.com" class="callout minimal third">
-                <div class="callout-head">
-                    <div class="callout-title">Laravel Nova</div>
-                    <div class="callout-icon"><?php echo svg('laravel-nova'); ?></div>
-                </div>
-                <p>Laravel Nova is a beautiful administration panel designed by the creator of Laravel.</p>
-            </a>
-            <a href="/docs/broadcasting" class="callout minimal third">
-                <div class="callout-head">
-                    <div class="callout-title">Laravel Echo</div>
-                    <div class="callout-icon">{!! svg('logo-echo')!!}</div>
-                </div>
-                <p>Event broadcasting, evolved. Bring the power of WebSockets to your application without the complexity.</p>
-            </a>
-        </div>
-	</div>
-</section>
-
-{{-- <section class="panel laracon standout" id="laracon">
-    <object type="image/svg+xml" data="/assets/img/laracon-16.svg" width="350"></object>
-    <h2>This year Laracon goes <strong>bigger than ever</strong>. Early Bird tickets available for a limited time.</h2>
-    <a href="http://laracon.us" class="btn"><em>Laracon US</em>Louisville, Kentucky</a>
-    <a href="http://laracon.eu" class="btn"><em>Laracon EU</em>Amsterdam, Netherlands</a>
-</section> --}}
-
-<section class="panel features dark" id="features">
-	<h1>Did someone say rapid?</h1>
-	<p class="intro">Elegant applications delivered at warp speed.</p>
-		<div class="blocks stacked">
-			<div class="block odd">
-				<div class="text">
-					<h2>Expressive, beautiful syntax.</h2>
-					<p>Value elegance, simplicity, and readability? You’ll fit right in. Laravel is designed for people just like you. If you need help getting started, check out <a href="https://laracasts.com">Laracasts</a> and our <a href="/docs">great documentation</a>.</p>
-				</div>
-				<div class="media">
-
-					<div class='browser-window'>
-						<div class='top-bar'>
-							<div class='circles'>
-								<div class="circle circle-red"></div>
-								<div class="circle circle-yellow"></div>
-								<div class="circle circle-green"></div>
-							</div>
-						</div>
-						<div class='window-content'>
-							<pre class="line-numbers"><code class="language-php">
-class Purchase implements ShouldQueue
-{
-
-	/**
-	 * Purchase a new podcast.
-	 */
-	public function handle(Repository $repo)
-	{
-		foreach ($this->purchases as $purchase)
-		{
-			//
-		}
-	}
-</code></pre>
-						</div>
-					</div>
-
-				</div>
-			</div><!-- /.block -->
-			<div class="block even">
-				<div class="text">
-					<h2>Tailored for your team.</h2>
-					<p>Whether you're a solo developer or a 20 person team, Laravel is a breath of fresh air. Keep everyone in sync using Laravel's database agnostic <a href="/docs/migrations">migrations</a> and <a href="/docs/migrations">schema builder</a>.</p>
-				</div>
-				<div class="media">
-					<div class="terminal-window">
-						<div class='top-bar'></div>
-						<div class='window-content'>
-							<div class="dark-code">
-							<pre><code class="language-bash">
-~/Apps $ php artisan make:migration create_users_table
-Migration created successfully!
-
-~/Apps $ php artisan migrate --seed
-Migrated: 2015_01_12_000000_create_users_table
-Migrated: 2015_01_12_100000_create_password_resets_table
-Migrated: 2015_01_13_162500_create_projects_table
-Migrated: 2015_01_13_162508_create_servers_table
-</code></pre></div>
-						</div>
-					</div>
-				</div>
-			</div><!-- /.block -->
-			<div class="block odd">
-				<div class="text">
-					<h2>Modern toolkit. Pinch of magic.</h2>
-					<p>An <a href="/docs/eloquent">amazing ORM</a>, painless <a href="/docs/routing">routing</a>, powerful <a href="/docs/queues">queue library</a>, and <a href="/docs/authentication">simple authentication</a> give you the tools you need for modern, maintainable PHP. We sweat the small stuff to help you deliver amazing applications.
-				</div>
-				<div class="media">
-
-					<div class='browser-window'>
-						<div class='top-bar'>
-							<div class='circles'>
-								<div class="circle circle-red"></div>
-								<div class="circle circle-yellow"></div>
-								<div class="circle circle-green"></div>
-							</div>
-						</div>
-						<div class='window-content'>
-							<pre class="line-numbers"><code class="language-php">
-Route::resource('photos', 'PhotoController');
-
-/**
- * Retrieve A User...
- */
-Route::get('/user/{user}', function(App\User $user)
-{
-	return $user;
-})
-</code></pre>
-					</div>
-				</div>
-			</div><!-- /.block -->
-		</div>
-	</section>
-
-	<section class="panel ecosystem light" id="ecosystem">
-		<h1>The Laravel Ecosystem</h1>
-		<p class="intro">Revolutionize how you build the web.</p>
-
-        <div class="container">
-    		<a href="https://forge.laravel.com" class="callout full forge">
-    			<div class="content">
-					{!! svg('forge') !!}
-    				<p>Instant PHP Platforms On Linode, DigitalOcean, and more. Push to deploy, PHP 7.2, HHVM, queues, and everything you need to launch and deploy amazing Laravel applications.</p>
-    				<p>Launch your application in minutes!</p>
-    			</div>
-                <img src="https://forge.laravel.com/images/ui-preview.png" alt="Forge UI Preview" height="350" />
-    		</a>
-            <div class="callouts">
-                <a class="third callout pop" href="/docs/homestead">
-                    <div class="callout-head">
-                        <div class="callout-title">Homestead</div>
-                        <div class="callout-icon">{!! svg('h') !!}</div>
+    <div class="home standard_layout">
+        <div class="remodal-bg">
+            <div class="content_contain" style="padding-bottom: 4.5em;">
+                <div class="page_contain">
+                    <div class="banner">
+                        <a href="https://vapor.laravel.com/">
+                            <div class="banner_icon icon_nova">
+                                <img src="/img/ecosystem/vapor.min.svg" alt="Vapor">
+                            </div>
+                            <div class="banner_content">
+                                 <p class="small">
+                                    Laravel Vapor is now available! Sign up today! <span class="arrow">→</span>
+                                </p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="callout-body">
-                        <p>The official Laravel development environment. Powered by Vagrant, Homestead gets your entire team on the same page with the latest PHP, MySQL, Postgres, Redis, and more.</p>
+                    <div class="contain">
+                        <section class="hero">
+                            <div class="hero_bg">
+                                <video poster="/img/hero/hero_poster.jpg" playsinline autoplay muted loop>
+                                    <source src="/img/hero/hero.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="hero_content">
+                                <h1>The PHP Framework for Web Artisans</h1>
+                                <p>Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.</p>
+                                <div class="hero_actions" style="z-index: -999;">
+                                    <a href="/docs" class="btn"><span>Documentation</span></a>
+                                    <a href="https://laracasts.com" data-remodal-target="video_modal" class="btn secondary"><span><img src="/img/icons/play.min.svg" alt="Play Video"><span>Watch Laracasts</span></span></a>
+
+<!--                                     <div data-remodal-id="video_modal" class="video_modal remodal">
+                                        <div class="video_contain">
+                                            <button data-remodal-action="close" class="remodal-close"></button>
+                                            <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" type="text/html" src="https://www.youtube.com/embed/cAGQGXtBvs4?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin=https://youtubeembedcode.com"></iframe>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                </a>
-                <a class="third callout pop teal" href="https://laracasts.com">
-                    <div class="callout-head">
-                        <div class="callout-title">Laracasts</div>
-                        <div class="callout-icon">{!! svg('play') !!}</div>
-                    </div>
-                    <div class="callout-body">
-                        <p>Hundreds (yes, hundreds) of Laravel and PHP video tutorials with new videos added every week. Skim the basics or start your journey to Laravel mastery. All for the price of lunch.</p>
-                    </div>
-                </a>
-                <a class="third callout pop" href="/docs/billing">
-                    <div class="callout-head">
-                        <div class="callout-title">Laravel Cashier</div>
-                        <div class="callout-icon">{!! svg('cashier') !!}</div>
-                    </div>
-                    <div class="callout-body">
-                        <p>Make subscription billing painless with built-in Stripe integration. Coupons, swapping subscriptions, cancellations, and even PDF invoices are ready out of the box.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="callout rule">
-                <span class="text">And so much more!</span>
-            </div>
-            <div class="packages">
-                <div class="package-row">
-                    <div class="package">
-                        <div class="icon">{!! svg('package') !!}</div>
-                        <div class="content">
-                            <a href="/docs/valet" class="package-title">Valet</a>
-                            <p>A Laravel development environment for Mac minimalists. No Vagrant, no Apache, no fuss.</p>
-                        </div>
-                    </div>
-                    <div class="package">
-                        <div class="icon">{!! svg('package') !!}</div>
-                        <div class="content">
-                            <a href="/docs/mix" class="package-title">Mix</a>
-                            <!-- <p>If you've ever been frustrated with Gulp and asset compilation, Elixir is for you.</p> -->
-                            <p>Laravel Mix makes front-end a breeze. Start using SASS and Webpack in minutes.</p>
-                        </div>
-                    </div>
-                    <div class="package">
-                        <div class="icon">{!! svg('package') !!}</div>
-                        <div class="content">
-                            <a href="https://lumen.laravel.com" class="package-title">Lumen</a>
-                            <p>If all you need is an API and lightning fast speed, try Lumen. It’s Laravel super-light.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="package-row">
-                    <div class="package">
-                        <div class="icon">{!! svg('package') !!}</div>
-                        <div class="content">
-                            @if(rand(0, 1))
-                            <a href="https://cachethq.io" class="package-title">Cachet</a>
-                            <p>Cachet is the best way to inform customers of downtime. This is your status page.</p>
+<!--                     <ul class="logos_list">
+                        <li><img src="/img/logos/wwe.min.svg" alt="WWE"></li>
+                        <li><img src="/img/logos/discovery.min.svg" alt="Discovery"></li>
+                        <li><img src="/img/logos/mcdonalds.min.svg" alt="McDonalds"></li>
+                        <li><img src="/img/logos/apple.min.svg" alt="Apple"></li>
+                        <li><img src="/img/logos/fox.min.svg" alt="20th Century Fox"></li>
+                        <li><img src="/img/logos/mcgraw_hill.min.svg" alt="McGraw Hill"></li>
+                    </ul> -->
+                    <div class="contain">
+                        <div class="content_block img_left">
+                            <div class="bg">
+                                <video poster="/img/blocks/blocks_3.jpg" playsinline autoplay muted loop>
+                                    <source src="/img/blocks/blocks_3.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            @if (SHOW_VAPOR)
+                                <div class="image">
+                                    <img src="/img/homepage/vapor.jpg" alt="Vapor">
+                                </div>
+                                <div class="content">
+                                    <h1>Laravel Vapor</h1>
+                                    <p>Laravel Vapor is a serverless deployment platform for Laravel, powered by AWS. Launch your Laravel infrastructure on Vapor and fall in love with the scalable simplicity of serverless.</p>
+                                    <a href="https://vapor.laravel.com" class="btn"><span>Learn More</span></a>
+                                </div>
                             @else
-                            <a href="https://styleci.io" class="package-title">StyleCI</a>
-                            <p>StyleCI is the PHP coding style continuous integration service for Laravel.</p>
+                                <div class="image">
+                                    <img src="/img/homepage/forge.jpg" alt="Forge">
+                                </div>
+                                <div class="content">
+                                    <h1>Laravel Forge</h1>
+                                    <p>Instant PHP Platforms on DigitalOcean, Linode, and more. Featuring push-to-deploy, Redis, queues, and everything else you could need to launch and deploy impressive Laravel applications.</p>
+                                    <a href="https://forge.laravel.com" class="btn"><span>Learn More</span></a>
+                                </div>
                             @endif
                         </div>
-                    </div>
-                    <div class="package">
-                        <div class="icon">{!! svg('package') !!}</div>
-                        <div class="content">
-                            <a href="https://spark.laravel.com" class="package-title">Spark</a>
-                            <p>Powerful SaaS application scaffolding. Stop writing boilerplate & focus on your application.</p>
+
+                        <div class="ecosystem_block">
+                            <div class="heading">
+                                <h6>Revolutionize how you build the web.</h6>
+                                <h1>The Laravel Ecosystem</h1>
+                            </div>
+                            <ul class="ecosystem">
+                                <li class="sys_vapor">
+                                    <a href="https://vapor.laravel.com">
+                                        <div class="system_icon"><img src="/img/ecosystem/vapor.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Vapor <span>Serverless Platform</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_forge">
+                                    <a href="https://forge.laravel.com">
+                                        <div class="system_icon"><img src="/img/ecosystem/forge.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Forge <span>Server Management</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_envoyer">
+                                    <a href="https://envoyer.io">
+                                        <div class="system_icon"><img src="/img/ecosystem/envoyer.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Envoyer <span>Zero Downtime Deployment</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_horizon">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/horizon">
+                                        <div class="system_icon"><img src="/img/ecosystem/horizon.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Horizon <span>Queue Monitoring</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_nova">
+                                    <a href="https://nova.laravel.com">
+                                        <div class="system_icon"><img src="/img/ecosystem/nova.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Nova <span>Administration Panel</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_echo">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/broadcasting">
+                                        <div class="system_icon"><img src="/img/ecosystem/echo.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Echo <span>Realtime Events</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_lumen">
+                                    <a href="https://lumen.laravel.com">
+                                        <div class="system_icon"><img src="/img/ecosystem/lumen.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Lumen <span>Micro-Framework</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_homestead">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/homestead">
+                                        <div class="system_icon">
+                                            <img src="/img/ecosystem/homestead.min.svg" alt="Icon"></div>
+                                        <div class="system_info">Homestead <span>Pre-Packaged Vagrant Box</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_spark">
+                                    <a href="https://spark.laravel.com">
+                                        <div class="system_icon"><img src="/img/ecosystem/spark.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Spark <span>SaaS App Scaffolding</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_valet">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/valet">
+                                        <div class="system_icon"><img src="/img/ecosystem/valet.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Valet <span>Dev Environment for Macs</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_mix">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/mix">
+                                        <div class="system_icon"><img src="/img/ecosystem/mix.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Mix <span>Webpack Asset Compilation</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_cashier">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/billing">
+                                        <div class="system_icon"><img src="/img/ecosystem/cashier.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Cashier <span>Subscription Billing</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="sys_dusk">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/dusk">
+                                        <div class="system_icon"><img src="/img/ecosystem/dusk.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Dusk <span>Browser Testing and Automation</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="sys_passport">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/passport">
+                                        <div class="system_icon">
+                                            <img src="/img/ecosystem/passport.min.svg" alt="Icon"></div>
+                                        <div class="system_info">Passport <span>Painless OAuth2 Implementation</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_scout">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/scout">
+                                        <div class="system_icon"><img src="/img/ecosystem/scout.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Scout <span>Full-Text Search</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_socialite">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/socialite">
+                                        <div class="system_icon">
+                                            <img src="/img/ecosystem/socialite.min.svg" alt="Icon"></div>
+                                        <div class="system_info">Socialite <span>OAuth Authentication</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_telescope">
+                                    <a href="/docs/{{DEFAULT_VERSION}}/telescope">
+                                        <div class="system_icon">
+                                            <img src="/img/ecosystem/telescope.min.svg" alt="Icon"></div>
+                                        <div class="system_info">Telescope <span>Debug Assistant</span></div>
+                                    </a>
+                                </li>
+                                <li class="sys_tinker">
+                                    <a href="https://github.com/laravel/tinker">
+                                        <div class="system_icon"><img src="/img/ecosystem/tinker.min.svg" alt="Icon">
+                                        </div>
+                                        <div class="system_info">Tinker <span>Interactive REPL</span></div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="package">
-                        <div class="icon">{!! svg('package') !!}</div>
-                        <div class="content">
-                            <a href="https://statamic.com" class="package-title">Statamic</a>
-                            <p>Need a CMS that runs on Laravel and is built for developers <em>and</em> clients? Look no further. </p>
+
+                        <div class="content_block bg_right resources">
+                            <div class="content">
+                                <h6>Resources</h6>
+                                <h1>A community built for people like you</h1>
+                                <p>Whether you’re a solo developer or a 20-person team, getting started is simple thanks to our great community.</p>
+                                <ul class="resource_list">
+                                    <li><a href="https://blog.laravel.com">Blog</a></li>
+                                    <li><a href="https://laracasts.com">Laracasts</a></li>
+                                    <!-- <li><a href="http://laravelpodcast.com/">Podcast</a></li> -->
+                                    <li><a href="https://laravel-news.com">Laravel News</a></li>
+                                    <li><a href="https://laracon.us/">Laracon</a></li>
+                                    <li><a href="https://larajobs.com/">Jobs</a></li>
+                                    <li><a href="https://laracon.eu/">Laracon EU</a></li>
+                                    <li><a href="https://laracasts.com/discuss">Forums</a></li>
+                                    <li><a href="https://laracon.com.au/">Laracon AU</a></li>
+                                    <li><a href="https://certification.laravel.com/">Certification</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="featured_resource">
+                                <div class="resource_icon">
+                                    <img src="/img/icons/laracasts.min.svg" alt="Laracasts">
+                                </div>
+                                <h6>Featured Resource</h6>
+                                <h3>Laracasts</h3>
+                                <p class="small">Nine out of ten doctors recommend Laracasts over competing brands. Check them out, see for yourself, and massively level up your development skills in the process.</p>
+                                <a href="https://laracasts.com" class="btn secondary"><span>Start Learning →</span></a>
+                            </div>
+                            <div class="bg">
+                                <video poster="/img/blocks/blocks_4.jpg" playsinline autoplay muted loop>
+                                    <source src="/img/blocks/blocks_4.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-	</section>
-@endsection
+    </div>
+@stop
